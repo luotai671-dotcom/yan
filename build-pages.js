@@ -1,4 +1,4 @@
-const fs = require('fs');
+onst fs = require('fs');
 const path = require('path');
 
 const root = __dirname;
@@ -57,7 +57,7 @@ function rewriteLinks(html) {
 
 function header(active='') {
   const item = (id,label,extra='') => `<a href="${pages[id].file}" class="${active===id?'active ':''}${extra}">${label}</a>`;
-  return `<div class="status-strip" role="status"><span class="status-dot" aria-hidden="true"></span><span>机场推荐与风险信息持续更新</span><span class="status-time">更新至 2026.10.09 · 已发布 50 篇指南</span></div>
+  return `<div class="status-strip" role="status"><span class="status-dot" aria-hidden="true"></span><span>机场推荐与风险信息持续更新</span><span class="status-time">更新至 2026.10.11 · 已发布 50 篇指南</span></div>
   <header class="site-header" id="top"><a class="brand" href="index.html" aria-label="机场眼首页"><span class="brand-mark" aria-hidden="true">机</span><span>机场眼</span></a>
   <nav class="main-nav" id="main-nav" aria-label="主导航">${item('recommend','机场推荐')}${item('budget','性价比机场')}${item('compare','机场对比')}${item('coupons','机场优惠码')}${item('faq','机场 FAQ')}${item('warning','<span class="pulse-dot"></span>跑路预警','nav-warning')}${item('blog','博客')}
   <div class="nav-dropdown"><button class="dropdown-trigger" type="button" aria-expanded="false">资源 <i data-lucide="chevron-down" class="dropdown-arrow"></i></button><div class="dropdown-menu"><a href="resources.html#resources-clients"><i data-lucide="download"></i> 客户端下载</a><a href="resources.html#resources-tools"><i data-lucide="wrench"></i> 订阅转换工具</a><a href="resources.html#resources-speed"><i data-lucide="activity"></i> 节点测速工具</a></div></div>
@@ -98,7 +98,7 @@ const portal = `<section class="section home-portals" aria-labelledby="portal-ti
   <a href="faq.html"><i data-lucide="circle-help"></i><strong>机场 FAQ</strong><span>快速解决新手常见问题</span></a>
   <a href="about.html"><i data-lucide="info"></i><strong>关于机场眼</strong><span>了解评测方法和内容原则</span></a>
 </div></section>`;
-fs.writeFileSync(sourcePath, shell({title:'2026最新专线机场推荐排行榜与性价比对比：10元便宜机场选购指南、优惠码折扣、跑路预警与客户端教程',description:'机场眼：2026最新专线机场推荐排行榜、10元性价比机场对比、优惠码折扣、跑路预警信号、代理客户端教程与网络安全科普。',active:'',content:`${hero}\n${portal}`,home:true}), 'utf8');
+fs.writeFileSync(sourcePath, shell({title:'2026稳定高速机场推荐与平安机场选购：最新高速专线节点分享、10元便宜性价比机场排行榜与防跑路避坑指南',description:'机场眼专注2026稳定高速机场推荐与平安机场客观评测，提供优质IEPL专线节点分享、10元平民性价比机场排行榜与大额优惠码。结合晚高峰真实测速、4K流媒体解锁、跑路风险预警与Clash/Sing-box客户端教程，助你精准避坑，挑选最省心可靠的高速网络连接。',active:'',content:`${hero}\n${portal}`,home:true}), 'utf8');
 
 console.log(`Generated homepage and ${Object.keys(pages).length} standalone pages.`);
 

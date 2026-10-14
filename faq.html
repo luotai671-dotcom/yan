@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="机场用户常见问题解答（FAQ），涵盖IEPL专线区别、套餐流量倍率扣费、客户端节点连不上排障、流媒体解锁与账号安全事项。"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://jichangyan.com/faq.html"><title>2026机场新手常见问题解答 FAQ：IEPL专线区别、倍率扣费、节点连接排障与账号安全全解｜机场眼</title><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">跳到主要内容</a><div class="status-strip" role="status"><span class="status-dot" aria-hidden="true"></span><span>机场推荐与风险信息持续更新</span><span class="status-time">更新至 2026.10.11 · 已发布 50 篇指南</span></div>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="机场用户常见问题解答（FAQ），涵盖IEPL专线区别、套餐流量倍率扣费、客户端节点连不上排障、流媒体解锁与账号安全事项。"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://jichangyan.com/faq.html"><title>2026机场新手常见问题解答 FAQ：IEPL专线区别、倍率扣费、节点连接排障与账号安全全解｜机场眼</title><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">跳到主要内容</a><div class="status-strip" role="status"><span class="status-dot" aria-hidden="true"></span><span>机场推荐与风险信息持续更新</span><span class="status-time">更新至 2026.10.14 · 已发布 55 篇指南</span></div>
   <header class="site-header" id="top"><a class="brand" href="index.html" aria-label="机场眼首页"><span class="brand-mark" aria-hidden="true">机</span><span>机场眼</span></a>
   <nav class="main-nav" id="main-nav" aria-label="主导航"><a href="recommend.html" class="">机场推荐</a><a href="budget.html" class="">性价比机场</a><a href="compare.html" class="">机场对比</a><a href="coupons.html" class="">机场优惠码</a><a href="faq.html" class="active ">机场 FAQ</a><a href="warning.html" class="nav-warning"><span class="pulse-dot"></span>跑路预警</a><a href="blog.html" class="">博客</a>
   <div class="nav-dropdown"><button class="dropdown-trigger" type="button" aria-expanded="false">资源 <i data-lucide="chevron-down" class="dropdown-arrow"></i></button><div class="dropdown-menu"><a href="resources.html#resources-clients"><i data-lucide="download"></i> 客户端下载</a><a href="resources.html#resources-tools"><i data-lucide="wrench"></i> 订阅转换工具</a><a href="resources.html#resources-speed"><i data-lucide="activity"></i> 节点测速工具</a></div></div>
@@ -12,10 +12,56 @@
     <p>涵盖免费机场风险、一元机场测评、便宜机场选购、IEPL专线原理、客户端排障与 AI/流媒体解锁常见疑惑全解答。</p>
   </div>
 
+    <!-- FAQ 分类与搜索控制栏 -->
+  <div class="faq-filter-panel">
+    <div class="faq-search-bar">
+      <div class="faq-search-box">
+        <i data-lucide="search" class="faq-search-icon"></i>
+        <input type="search" id="faq-filter-search" class="faq-search-input" placeholder="在 30 题疑难解答中搜索（如：IPLC、ChatGPT、跑路、退款、倍率、断网、Telegram）..." autocomplete="off">
+        <button type="button" id="faq-search-clear" class="faq-search-clear" aria-label="清空搜索" hidden><i data-lucide="x"></i></button>
+      </div>
+      <div class="faq-actions-group">
+        <button type="button" id="faq-expand-all" class="faq-action-btn" title="一键展开当前解答">
+          <i data-lucide="chevrons-down-up"></i> <span>全部展开</span>
+        </button>
+        <button type="button" id="faq-collapse-all" class="faq-action-btn" title="一键折叠全部解答">
+          <i data-lucide="chevrons-up-down"></i> <span>全部折叠</span>
+        </button>
+        <div class="faq-count-badge" id="faq-filter-count">
+          <span>已显示 <strong>30</strong> 题疑难解答</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category-nav" role="tablist" aria-label="FAQ分类筛选">
+      <button type="button" class="faq-pill active" data-category="all" role="tab" aria-selected="true">
+        <i data-lucide="layout-grid"></i> 全部 <span class="pill-badge" id="faq-badge-all">30</span>
+      </button>
+      <button type="button" class="faq-pill" data-category="avoid-pitfalls" role="tab">
+        <i data-lucide="shield-alert"></i> 避坑与防跑路 <span class="pill-badge">8</span>
+      </button>
+      <button type="button" class="faq-pill" data-category="line-tech" role="tab">
+        <i data-lucide="git-branch"></i> 专线与线路原理 <span class="pill-badge">6</span>
+      </button>
+      <button type="button" class="faq-pill" data-category="pricing-plans" role="tab">
+        <i data-lucide="wallet"></i> 套餐选购与资费 <span class="pill-badge">6</span>
+      </button>
+      <button type="button" class="faq-pill" data-category="clients-troubleshoot" role="tab">
+        <i data-lucide="wrench"></i> 客户端与排障 <span class="pill-badge">6</span>
+      </button>
+      <button type="button" class="faq-pill" data-category="streaming-ai-privacy" role="tab">
+        <i data-lucide="tv"></i> AI·流媒体与安全 <span class="pill-badge">4</span>
+      </button>
+    </div>
+  </div>
+
   <div class="faq-accordion">
-    <details class="faq-item" open>
+    <details class="faq-item" open data-category="line-tech">
       <summary class="faq-question">
-        <span>1. 什么是 IPLC / IEPL 专线？跟公网中转有什么区别？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">1. 什么是 IPLC / IEPL 专线？跟公网中转有什么区别？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -23,9 +69,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>2. 免费机场靠谱吗？使用免费机场有哪些隐藏风险？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">2. 免费机场靠谱吗？使用免费机场有哪些隐藏风险？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -33,9 +82,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>3. 一元机场为什么这么便宜？一元机场可以长期作为主力吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">3. 一元机场为什么这么便宜？一元机场可以长期作为主力吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -43,9 +95,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>4. 便宜机场（如月付 5-10 元）该怎么挑选才不踩坑？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">4. 便宜机场（如月付 5-10 元）该怎么挑选才不踩坑？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -53,9 +108,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>5. 机场节点的“倍率”是什么意思？如何计算实际消耗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">5. 机场节点的“倍率”是什么意思？如何计算实际消耗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -63,9 +121,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="line-tech">
       <summary class="faq-question">
-        <span>6. 为什么到了晚高峰（20:00 - 23:00）网速会变慢或掉线？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">6. 为什么到了晚高峰（20:00 - 23:00）网速会变慢或掉线？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -73,9 +134,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>7. 一元机场和免费机场频繁“跑路”的主要原因是什么？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">7. 一元机场和免费机场频繁“跑路”的主要原因是什么？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -83,9 +147,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>8. 如何判断一个机场是否有跑路风险？（跑路前五大征兆）</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">8. 如何判断一个机场是否有跑路风险？（跑路前五大征兆）</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -93,9 +160,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>9. Clash、Sing-box 与 Shadowrocket (小火箭) 哪个客户端更好用？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">9. Clash、Sing-box 与 Shadowrocket (小火箭) 哪个客户端更好用？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -103,9 +173,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="line-tech">
       <summary class="faq-question">
-        <span>10. 原生 IP、住宅 IP 和机房 IP 有什么区别？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">10. 原生 IP、住宅 IP 和机房 IP 有什么区别？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -113,9 +186,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="streaming-ai-privacy">
       <summary class="faq-question">
-        <span>11. 为什么节点能打开谷歌，却无法使用 ChatGPT 或 Claude？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-streaming-ai-privacy">AI与流媒体</span>
+          <span class="faq-title-text">11. 为什么节点能打开谷歌，却无法使用 ChatGPT 或 Claude？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -123,9 +199,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>12. 机场订阅链接可以发给朋友或上传到第三方转换站吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">12. 机场订阅链接可以发给朋友或上传到第三方转换站吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -133,9 +212,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>13. 免费试用机场如何正确申请与实测？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">13. 免费试用机场如何正确申请与实测？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -143,9 +225,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>14. 一元机场的“无限流量”套餐是真的吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">14. 一元机场的“无限流量”套餐是真的吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -153,9 +238,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>15. 购买机场选“月付”、“季付”还是“年付”最好？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">15. 购买机场选“月付”、“季付”还是“年付”最好？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -163,9 +251,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="line-tech">
       <summary class="faq-question">
-        <span>16. Hysteria2、VLESS Reality 和 Trojan 哪个协议速度更快？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">16. Hysteria2、VLESS Reality 和 Trojan 哪个协议速度更快？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -173,9 +264,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>17. 什么是机场的“不限时流量包”？适合哪些人群？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">17. 什么是机场的“不限时流量包”？适合哪些人群？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -183,9 +277,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>18. 机场节点显示“按量计费”或“0.1x 流量倍率”划算吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">18. 机场节点显示“按量计费”或“0.1x 流量倍率”划算吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -193,9 +290,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="streaming-ai-privacy">
       <summary class="faq-question">
-        <span>19. 便宜机场使用过久会导致个人隐私或密码泄露吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-streaming-ai-privacy">AI与流媒体</span>
+          <span class="faq-title-text">19. 便宜机场使用过久会导致个人隐私或密码泄露吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -203,9 +303,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>20. 机场连接成功但网页提示“DNS_PROBE_FINISHED_NO_INTERNET”怎么解决？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">20. 机场连接成功但网页提示“DNS_PROBE_FINISHED_NO_INTERNET”怎么解决？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -213,9 +316,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="line-tech">
       <summary class="faq-question">
-        <span>21. BGP 中转节点相比公网直连有哪些核心优势？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">21. BGP 中转节点相比公网直连有哪些核心优势？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -223,9 +329,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>22. 为什么 Telegram 开启机场节点后依然显示“连接中…”？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">22. 为什么 Telegram 开启机场节点后依然显示“连接中…”？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -233,9 +342,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="streaming-ai-privacy">
       <summary class="faq-question">
-        <span>23. 便宜机场能否用来玩外服游戏（如 Steam、LOL日服、Valorant）？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-streaming-ai-privacy">AI与流媒体</span>
+          <span class="faq-title-text">23. 便宜机场能否用来玩外服游戏（如 Steam、LOL日服、Valorant）？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -243,9 +355,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="streaming-ai-privacy">
       <summary class="faq-question">
-        <span>24. 一元机场与免费节点支持 4K/8K 极清视频流畅播放吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-streaming-ai-privacy">AI与流媒体</span>
+          <span class="faq-title-text">24. 一元机场与免费节点支持 4K/8K 极清视频流畅播放吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -253,9 +368,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="line-tech">
       <summary class="faq-question">
-        <span>25. 机场节点的“入口”和“出口”分别代表什么？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-line-tech">专线原理</span>
+          <span class="faq-title-text">25. 机场节点的“入口”和“出口”分别代表什么？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -263,9 +381,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>26. 使用订阅转换工具（Subconverter）会导致 Token 泄露吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">26. 使用订阅转换工具（Subconverter）会导致 Token 泄露吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -273,9 +394,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="clients-troubleshoot">
       <summary class="faq-question">
-        <span>27. 如果机场官网突然打不开，但已有节点还能正常使用怎么办？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-clients-troubleshoot">客户端排障</span>
+          <span class="faq-title-text">27. 如果机场官网突然打不开，但已有节点还能正常使用怎么办？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -283,9 +407,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="avoid-pitfalls">
       <summary class="faq-question">
-        <span>28. 免费机场和一元机场会不会把节点导出做“免费节点池”？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-avoid-pitfalls">避坑防骗</span>
+          <span class="faq-title-text">28. 免费机场和一元机场会不会把节点导出做“免费节点池”？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -293,9 +420,12 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>29. 购买机场套餐支持退款吗？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">29. 购买机场套餐支持退款吗？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
@@ -303,15 +433,24 @@
       </div>
     </details>
 
-    <details class="faq-item">
+    <details class="faq-item" data-category="pricing-plans">
       <summary class="faq-question">
-        <span>30. 新手建立个人备用网络方案的最佳组合是什么？</span>
+        <div class="faq-q-left">
+          <span class="faq-tag tag-pricing-plans">套餐资费</span>
+          <span class="faq-title-text">30. 新手建立个人备用网络方案的最佳组合是什么？</span>
+        </div>
         <i data-lucide="chevron-down" class="faq-icon"></i>
       </summary>
       <div class="faq-answer">
         <p>推荐采用<strong>“一主一备”双机场组合</strong>：主力线路选择稳定可靠的 IEPL/BGP 专线月付机场（满足日常办公、4K 影音与 AI 解锁）；备用线路选择不限时流量包机场或高性价比一元/便宜机场，防止单机场临时波动。</p>
       </div>
     </details>
+      <div class="faq-empty-state" id="faq-empty-state" hidden>
+      <i data-lucide="help-circle" class="empty-icon"></i>
+      <h3>未找到匹配的 FAQ 解答</h3>
+      <p>没有找到与 “<span id="faq-empty-keyword"></span>” 相关的解答，你可以尝试缩短搜索词或切换分类</p>
+      <button type="button" class="button button-ghost" id="faq-reset-filter">重置筛选条件</button>
+    </div>
   </div>
 </section></main><footer class="site-footer"><div class="footer-brand"><span class="brand-mark">机</span><strong>机场眼</strong><p>清楚地看见每一段连接。</p></div><div><strong>选购</strong><a href="recommend.html">机场推荐</a><a href="budget.html">性价比机场</a><a href="compare.html">机场对比</a><a href="coupons.html">优惠码</a></div><div><strong>工具与指南</strong><a href="warning.html">跑路预警</a><a href="resources.html">资源中心</a><a href="faq.html">机场 FAQ</a></div><div><strong>内容</strong><a href="blog.html">博客文章</a><a href="about.html">关于我们</a></div></footer><div class="search-panel" id="search-panel" hidden><div class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title"><div class="search-top"><h2 id="search-title">搜索机场眼</h2><button class="icon-button search-close" type="button" aria-label="关闭搜索"><i data-lucide="x"></i></button></div><label class="search-field"><i data-lucide="search"></i><input id="site-search" type="search" placeholder="搜索机场、协议或使用问题"></label><div class="search-results" id="search-results"><p>热门搜索</p><button data-query="晚高峰">晚高峰</button><button data-query="WireGuard">WireGuard</button><button data-query="流媒体">流媒体</button></div></div></div>
   <div class="modal" id="article-modal" hidden><div class="modal-backdrop" data-close-modal></div><article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="icon-button modal-close" type="button" data-close-modal aria-label="关闭"><i data-lucide="x"></i></button><p class="eyebrow dark" id="modal-kicker">详细评测</p><h2 id="modal-title">评测详情</h2><div id="modal-content"></div></article></div><script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="articles.js"></script><script src="app.js"></script></body></html>

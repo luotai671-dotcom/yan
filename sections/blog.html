@@ -7,6 +7,50 @@
         <p>提供有据可查的原理剖析、客户端配置技巧与网络安全科普，帮你看懂底层架构。</p>
       </div>
 
+      <!-- 博客分类与搜索控制栏 -->
+      <div class="blog-filter-panel">
+        <div class="blog-search-bar">
+          <div class="blog-search-box">
+            <i data-lucide="search" class="blog-search-icon"></i>
+            <input type="search" id="blog-filter-search" class="blog-search-input" placeholder="在 55 篇技术文章中实时搜索（如：TUN、按量、回国、Clash、流媒体、出海、PS5）..." autocomplete="off">
+            <button type="button" id="blog-search-clear" class="blog-search-clear" aria-label="清空搜索" hidden><i data-lucide="x"></i></button>
+          </div>
+          <div class="blog-count-badge" id="blog-filter-count">
+            <span>已显示 <strong>55</strong> 篇技术文章</span>
+          </div>
+        </div>
+
+        <div class="blog-category-nav" role="tablist" aria-label="文章分类筛选">
+          <button type="button" class="category-pill active" data-category="all" role="tab" aria-selected="true">
+            <i data-lucide="layout-grid"></i> 全部 <span class="pill-badge" id="badge-all">55</span>
+          </button>
+          <button type="button" class="category-pill" data-category="选购指南" role="tab">
+            <i data-lucide="shopping-bag"></i> 选购与测评
+          </button>
+          <button type="button" class="category-pill" data-category="客户端教程" role="tab">
+            <i data-lucide="smartphone"></i> 客户端教程
+          </button>
+          <button type="button" class="category-pill" data-category="线路科普" role="tab">
+            <i data-lucide="git-branch"></i> 线路与协议
+          </button>
+          <button type="button" class="category-pill" data-category="故障排查" role="tab">
+            <i data-lucide="wrench"></i> 故障与排障
+          </button>
+          <button type="button" class="category-pill" data-category="流媒体" role="tab">
+            <i data-lucide="tv"></i> 流媒体与游戏
+          </button>
+          <button type="button" class="category-pill" data-category="AI 安全" role="tab">
+            <i data-lucide="bot"></i> AI 解锁与安全
+          </button>
+          <button type="button" class="category-pill" data-category="隐私安全" role="tab">
+            <i data-lucide="shield"></i> 隐私与风控
+          </button>
+          <button type="button" class="category-pill" data-category="电商出海" role="tab">
+            <i data-lucide="globe"></i> 电商出海与终端
+          </button>
+        </div>
+      </div>
+
       <div class="blog-grid" id="blog-grid" aria-live="polite"></div>
       <div class="blog-pagination" id="blog-pagination"></div>
     </section>

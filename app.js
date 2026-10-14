@@ -21,22 +21,104 @@ const articles = {
 
 const blogGrid = document.querySelector('#blog-grid');
 const blogPagination = document.querySelector('#blog-pagination');
+const blogFilterSearch = document.querySelector('#blog-filter-search');
+const blogSearchClear = document.querySelector('#blog-search-clear');
+const blogFilterCount = document.querySelector('#blog-filter-count');
+const categoryPills = document.querySelectorAll('.category-pill');
 
 if (blogGrid && Array.isArray(window.ARTICLE_INDEX)) {
   const PAGE_SIZE = 6;
   let currentPage = 1;
-  const totalArticles = window.ARTICLE_INDEX.length;
-  const totalPages = Math.ceil(totalArticles / PAGE_SIZE);
+  let currentCategory = 'all';
+  let currentSearchQuery = '';
+  let activeArticles = [...window.ARTICLE_INDEX];
+
+  // 分类映射规则（支持大类聚合）
+  const categoryMap = {
+    '选购指南': ['选购指南', '机场测评', '购买建议', '优惠攻略', '风险防范', '套餐知识'],
+    '客户端教程': ['客户端教程', '组网教程', '高级进阶'],
+    '线路科普': ['线路科普', '协议科普', '线路选择', 'IP 科普', '网络原理'],
+    '故障排查': ['故障排查', '网络优化', 'DNS 科普'],
+    '流媒体': ['流媒体', '游戏加速'],
+    'AI 安全': ['AI 安全', 'AI 解锁', '前沿安全'],
+    '隐私安全': ['隐私安全', '账号安全', '订阅安全', '远程办公', '办公场景'],
+    '电商出海': ['电商出海', '终端配置', '使用场景', '移动网络', '方案对比']
+  };
+
+  function filterArticles() {
+    activeArticles = window.ARTICLE_INDEX.filter(article => {
+      // 1. 分类匹配
+      let matchCategory = false;
+      if (currentCategory === 'all') {
+        matchCategory = true;
+      } else if (categoryMap[currentCategory]) {
+        matchCategory = categoryMap[currentCategory].includes(article.category);
+      } else {
+        matchCategory = article.category === currentCategory;
+      }
+
+      // 2. 搜索词匹配
+      let matchQuery = true;
+      if (currentSearchQuery) {
+        const q = currentSearchQuery.toLowerCase();
+        const inTitle = (article.title || '').toLowerCase().includes(q);
+        const inKeyword = (article.keyword || '').toLowerCase().includes(q);
+        const inFocus = (article.focus || '').toLowerCase().includes(q);
+        const inCategory = (article.category || '').toLowerCase().includes(q);
+        const inEntities = Array.isArray(article.entities) && article.entities.some(e => e.toLowerCase().includes(q));
+        matchQuery = inTitle || inKeyword || inFocus || inCategory || inEntities;
+      }
+
+      return matchCategory && matchQuery;
+    });
+
+    currentPage = 1;
+    renderArticles(1, false);
+    updateFilterCount();
+  }
+
+  function updateFilterCount() {
+    if (blogFilterCount) {
+      if (currentSearchQuery || currentCategory !== 'all') {
+        blogFilterCount.innerHTML = `<span>找到 <strong>${activeArticles.length}</strong> 篇匹配文章（共 ${window.ARTICLE_INDEX.length} 篇）</span>`;
+      } else {
+        blogFilterCount.innerHTML = `<span>已显示 <strong>${window.ARTICLE_INDEX.length}</strong> 篇技术文章</span>`;
+      }
+    }
+  }
 
   function renderArticles(page, scroll = false) {
     currentPage = page;
+    const totalCount = activeArticles.length;
+    const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+
+    if (totalCount === 0) {
+      blogGrid.innerHTML = `
+        <div class="blog-empty-state">
+          <i data-lucide="file-question" style="width:48px;height:48px;color:#94a3b8;margin-bottom:12px;"></i>
+          <h3>未找到与当前筛选条件匹配的文章</h3>
+          <p>尝试缩短或更换搜索关键词，或者切换回全部分类</p>
+          <button type="button" class="button button-outline" id="blog-reset-filters" style="margin-top:12px;">
+            <i data-lucide="rotate-ccw"></i> 重置筛选条件
+          </button>
+        </div>
+      `;
+      if (blogPagination) blogPagination.innerHTML = '';
+      if (window.lucide) window.lucide.createIcons();
+      const resetBtn = document.querySelector('#blog-reset-filters');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', resetFilters);
+      }
+      return;
+    }
+
     const startIndex = (page - 1) * PAGE_SIZE;
-    const endIndex = Math.min(startIndex + PAGE_SIZE, totalArticles);
-    const pageArticles = window.ARTICLE_INDEX.slice(startIndex, endIndex);
+    const endIndex = Math.min(startIndex + PAGE_SIZE, totalCount);
+    const pageArticles = activeArticles.slice(startIndex, endIndex);
 
     blogGrid.innerHTML = pageArticles.map(article => `
       <article class="blog-card">
-        <div class="blog-thumb" style="background-image:url('${article.cover}')" role="img" aria-label="${article.title}封面"></div>
+        <a href="articles/${article.slug}.html" class="blog-thumb" style="background-image:url('${article.cover}')" role="img" aria-label="${article.title}封面"></a>
         <div class="blog-content">
           <span class="blog-tag">${article.category}</span>
           <h3><a href="articles/${article.slug}.html">${article.title}</a></h3>
@@ -49,7 +131,7 @@ if (blogGrid && Array.isArray(window.ARTICLE_INDEX)) {
       </article>
     `).join('');
 
-    renderPaginationControls();
+    renderPaginationControls(totalPages, totalCount);
     if (window.lucide) window.lucide.createIcons();
 
     if (scroll) {
@@ -60,7 +142,7 @@ if (blogGrid && Array.isArray(window.ARTICLE_INDEX)) {
     }
   }
 
-  function renderPaginationControls() {
+  function renderPaginationControls(totalPages, totalCount) {
     if (!blogPagination) return;
     if (totalPages <= 1) {
       blogPagination.innerHTML = '';
@@ -87,11 +169,11 @@ if (blogGrid && Array.isArray(window.ARTICLE_INDEX)) {
     </button>`;
 
     const startItem = (currentPage - 1) * PAGE_SIZE + 1;
-    const endItem = Math.min(currentPage * PAGE_SIZE, totalArticles);
+    const endItem = Math.min(currentPage * PAGE_SIZE, totalCount);
 
     blogPagination.innerHTML = `
       <div class="pagination-controls">${buttonsHtml}</div>
-      <div class="pagination-info">显示第 ${startItem} - ${endItem} 篇 · 共 ${totalArticles} 篇文章 (第 ${currentPage} / ${totalPages} 页)</div>
+      <div class="pagination-info">显示第 ${startItem} - ${endItem} 篇 · 筛选出 ${totalCount} 篇文章 (第 ${currentPage} / ${totalPages} 页)</div>
     `;
 
     blogPagination.querySelectorAll('.page-btn:not(:disabled)').forEach(btn => {
@@ -104,6 +186,60 @@ if (blogGrid && Array.isArray(window.ARTICLE_INDEX)) {
     });
   }
 
+  function resetFilters() {
+    currentCategory = 'all';
+    currentSearchQuery = '';
+    if (blogFilterSearch) blogFilterSearch.value = '';
+    if (blogSearchClear) blogSearchClear.hidden = true;
+    categoryPills.forEach(p => {
+      const isAll = p.dataset.category === 'all';
+      p.classList.toggle('active', isAll);
+      p.setAttribute('aria-selected', String(isAll));
+    });
+    filterArticles();
+  }
+
+  // 分类按钮点击事件
+  categoryPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      categoryPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+      currentCategory = pill.dataset.category || 'all';
+      filterArticles();
+    });
+  });
+
+  // 搜索框输入事件（防抖）
+  if (blogFilterSearch) {
+    let debounceTimer = null;
+    blogFilterSearch.addEventListener('input', e => {
+      const val = e.target.value.trim();
+      currentSearchQuery = val;
+      if (blogSearchClear) {
+        blogSearchClear.hidden = !val;
+      }
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        filterArticles();
+      }, 150);
+    });
+
+    if (blogSearchClear) {
+      blogSearchClear.addEventListener('click', () => {
+        blogFilterSearch.value = '';
+        currentSearchQuery = '';
+        blogSearchClear.hidden = true;
+        filterArticles();
+        blogFilterSearch.focus();
+      });
+    }
+  }
+
+  // 初始化首次渲染
   renderArticles(1, false);
 }
 
@@ -296,9 +432,9 @@ if (jumpSelect) {
 // Quick Nav Pill Links
 document.querySelectorAll('.quick-nav-pills a').forEach(link => {
   link.addEventListener('click', event => {
-    event.preventDefault();
     const href = link.getAttribute('href');
     if (href && href.startsWith('#')) {
+      event.preventDefault();
       const el = document.querySelector(href);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -308,6 +444,156 @@ document.querySelectorAll('.quick-nav-pills a').forEach(link => {
     }
   });
 });
+
+// FAQ Filter, Search and Expand/Collapse Controller
+const faqFilterSearch = document.querySelector('#faq-filter-search');
+const faqSearchClear = document.querySelector('#faq-search-clear');
+const faqFilterCount = document.querySelector('#faq-filter-count');
+const faqPills = document.querySelectorAll('.faq-pill');
+const faqItems = document.querySelectorAll('.faq-item');
+const faqExpandAll = document.querySelector('#faq-expand-all');
+const faqCollapseAll = document.querySelector('#faq-collapse-all');
+const faqEmptyState = document.querySelector('#faq-empty-state');
+const faqEmptyKeyword = document.querySelector('#faq-empty-keyword');
+const faqResetFilter = document.querySelector('#faq-reset-filter');
+
+if (faqItems.length > 0) {
+  let currentFaqCategory = 'all';
+  let currentFaqQuery = '';
+  const totalFaqCount = faqItems.length;
+
+  function filterFaqItems() {
+    let visibleCount = 0;
+    const query = currentFaqQuery.trim().toLowerCase();
+
+    faqItems.forEach(item => {
+      // 1. Category matching
+      const itemCategory = item.dataset.category || '';
+      const matchCategory = (currentFaqCategory === 'all') || (itemCategory === currentFaqCategory);
+
+      // 2. Keyword matching in Question title and Answer text
+      let matchQuery = true;
+      if (query) {
+        const questionText = (item.querySelector('.faq-question')?.textContent || '').toLowerCase();
+        const answerText = (item.querySelector('.faq-answer')?.textContent || '').toLowerCase();
+        matchQuery = questionText.includes(query) || answerText.includes(query);
+      }
+
+      if (matchCategory && matchQuery) {
+        item.classList.remove('is-hidden');
+        visibleCount++;
+        // If searching specifically with keywords, auto-open matching details for immediate answer viewing
+        if (query) {
+          item.open = true;
+        }
+      } else {
+        item.classList.add('is-hidden');
+      }
+    });
+
+    // Update Counter
+    if (faqFilterCount) {
+      if (currentFaqCategory !== 'all' || query) {
+        faqFilterCount.innerHTML = `<span>找到 <strong>${visibleCount}</strong> 题匹配解答（共 ${totalFaqCount} 题）</span>`;
+      } else {
+        faqFilterCount.innerHTML = `<span>已显示 <strong>${totalFaqCount}</strong> 题疑难解答</span>`;
+      }
+    }
+
+    // Empty State Toggle
+    if (faqEmptyState) {
+      if (visibleCount === 0) {
+        faqEmptyState.hidden = false;
+        if (faqEmptyKeyword) {
+          faqEmptyKeyword.textContent = query || currentFaqCategory;
+        }
+      } else {
+        faqEmptyState.hidden = true;
+      }
+    }
+  }
+
+  // Category Pill Click Event
+  faqPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      faqPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+      currentFaqCategory = pill.dataset.category || 'all';
+      filterFaqItems();
+    });
+  });
+
+  // Search Input Event
+  if (faqFilterSearch) {
+    faqFilterSearch.addEventListener('input', e => {
+      currentFaqQuery = e.target.value;
+      if (faqSearchClear) {
+        faqSearchClear.hidden = !currentFaqQuery;
+      }
+      filterFaqItems();
+    });
+
+    if (faqSearchClear) {
+      faqSearchClear.addEventListener('click', () => {
+        faqFilterSearch.value = '';
+        currentFaqQuery = '';
+        faqSearchClear.hidden = true;
+        faqFilterSearch.focus();
+        filterFaqItems();
+      });
+    }
+  }
+
+  // Expand All / Collapse All Buttons
+  if (faqExpandAll) {
+    faqExpandAll.addEventListener('click', () => {
+      faqItems.forEach(item => {
+        if (!item.classList.contains('is-hidden')) {
+          item.open = true;
+        }
+      });
+    });
+  }
+
+  if (faqCollapseAll) {
+    faqCollapseAll.addEventListener('click', () => {
+      faqItems.forEach(item => {
+        if (!item.classList.contains('is-hidden')) {
+          item.open = false;
+        }
+      });
+    });
+  }
+
+  // Reset Filter Button in Empty State
+  if (faqResetFilter) {
+    faqResetFilter.addEventListener('click', () => {
+      currentFaqCategory = 'all';
+      currentFaqQuery = '';
+      if (faqFilterSearch) {
+        faqFilterSearch.value = '';
+      }
+      if (faqSearchClear) {
+        faqSearchClear.hidden = true;
+      }
+      faqPills.forEach(p => {
+        if (p.dataset.category === 'all') {
+          p.classList.add('active');
+          p.setAttribute('aria-selected', 'true');
+        } else {
+          p.classList.remove('active');
+          p.setAttribute('aria-selected', 'false');
+        }
+      });
+      filterFaqItems();
+    });
+  }
+}
+
 
 
 

@@ -594,6 +594,46 @@ if (faqItems.length > 0) {
   }
 }
 
+// ===================================================
+// 场景化细分交互逻辑 (Scenario Tabs & Filtering)
+// ===================================================
+const scenarioTabBtns = document.querySelectorAll('.scenario-tab-btn');
+const scenarioPanels = document.querySelectorAll('.scenario-panel');
 
+if (scenarioTabBtns.length > 0 && scenarioPanels.length > 0) {
+  function activateScenario(scenarioName) {
+    scenarioTabBtns.forEach(btn => {
+      const isMatch = btn.dataset.scenario === scenarioName;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
 
+    scenarioPanels.forEach(panel => {
+      const isMatch = panel.id === `panel-${scenarioName}`;
+      panel.classList.toggle('active', isMatch);
+    });
 
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  scenarioTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const scenario = btn.dataset.scenario;
+      activateScenario(scenario);
+      if (history.replaceState) {
+        history.replaceState(null, '', `#scenario-${scenario}`);
+      }
+    });
+  });
+
+  // 支持页面初始 Hash 锚点自动激活
+  if (window.location.hash && window.location.hash.startsWith('#scenario-')) {
+    const hashScenario = window.location.hash.replace('#scenario-', '');
+    const targetBtn = document.querySelector(`.scenario-tab-btn[data-scenario="${hashScenario}"]`);
+    if (targetBtn) {
+      activateScenario(hashScenario);
+    }
+  }
+}

@@ -12,6 +12,7 @@
           <p class="hero-copy">不知道机场该怎么选？机场眼把线路类型、晚高峰速度、折后价格、流媒体与 AI 可用性放在同一套标准里比较，帮助你先看懂差异，再决定是否购买。</p>
           <p class="hero-detail">这里不仅提供推荐排名，还会说明每款方案为什么值得关注、适合哪些人、可能有哪些限制。新手可以查看客户端教程和选购指南，准备续费的用户也能通过跑路预警与风险文章减少长期预付风险。</p>
           <div class="hero-topics" aria-label="博客主要内容">
+            <a href="#scenarios" style="color:var(--red); font-weight:700;"><i data-lucide="crosshair" style="width:14px;height:14px;vertical-align:-2px;"></i> 场景化选型</a>
             <a href="recommend.html">本月机场推荐</a>
             <a href="reviews/index.html">24家独立测评</a>
             <a href="compare.html">方案数据对比</a>
@@ -20,8 +21,8 @@
           </div>
         </div>
         <div class="hero-actions">
-          <a class="button button-primary" href="recommend.html">查看 10 月前瞻排行 <i data-lucide="arrow-down-right" aria-hidden="true"></i></a>
-          <a class="button button-ghost" href="reviews/index.html">浏览 24 家独立测评</a>
+          <a class="button button-primary" href="#scenarios">按场景挑选方案 <i data-lucide="arrow-down" aria-hidden="true"></i></a>
+          <a class="button button-ghost" href="recommend.html">查看 24 家完整排行</a>
         </div>
       </div>
       <div class="hero-metrics" aria-label="评测概览">
@@ -31,8 +32,611 @@
       </div>
       <p class="photo-credit">图像：Unsplash / NASA</p>
     </section>
+<section class="section scenarios-section" id="scenarios" aria-labelledby="scenarios-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow dark">精准定位需求 · 拒绝盲目选型</p>
+      <h2 id="scenarios-title">🎯 场景化细分选型与技术差异对比</h2>
+    </div>
+    <p>不同业务与娱乐需求对网络延迟、出口 IP 纯净度、晚高峰带宽吞吐与连接并发有着截然不同的硬性指标要求。请根据您的核心用途选择场景，精准对号入座：</p>
+  </div>
+
+  <!-- 场景切换 Tabs -->
+  <div class="scenario-tabs-container">
+    <div class="scenario-tabs" role="tablist" aria-label="应用场景细分选择">
+      <button class="scenario-tab-btn active" role="tab" aria-selected="true" data-scenario="ecommerce" id="tab-ecommerce">
+        <i data-lucide="briefcase"></i>
+        <span>跨境出海 / 电商</span>
+        <span class="tab-badge">固定IP</span>
+      </button>
+      <button class="scenario-tab-btn" role="tab" aria-selected="false" data-scenario="ai" id="tab-ai">
+        <i data-lucide="bot"></i>
+        <span>海外 AI / 生产力</span>
+        <span class="tab-badge">防1020</span>
+      </button>
+      <button class="scenario-tab-btn" role="tab" aria-selected="false" data-scenario="streaming" id="tab-streaming">
+        <i data-lucide="tv"></i>
+        <span>4K/8K 极清流媒体</span>
+        <span class="tab-badge">超大吞吐</span>
+      </button>
+      <button class="scenario-tab-btn" role="tab" aria-selected="false" data-scenario="team" id="tab-team">
+        <i data-lucide="users"></i>
+        <span>团队多端 / 软路由</span>
+        <span class="tab-badge">不限并发</span>
+      </button>
+      <button class="scenario-tab-btn" role="tab" aria-selected="false" data-scenario="gaming" id="tab-gaming">
+        <i data-lucide="gamepad-2"></i>
+        <span>游戏联机 / 低延迟</span>
+        <span class="tab-badge">零丢包</span>
+      </button>
+      <button class="scenario-tab-btn" role="tab" aria-selected="false" data-scenario="budget" id="tab-budget">
+        <i data-lucide="graduation-cap"></i>
+        <span>轻量文献 / 按量备用</span>
+        <span class="tab-badge">不过期</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 场景详细面板组 -->
+  <div class="scenario-panels">
+    
+    <!-- 场景 1: 跨境电商 / 外贸出海 -->
+    <div class="scenario-panel active" id="panel-ecommerce" role="tabpanel" aria-labelledby="tab-ecommerce">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="shield-check"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">💼 跨境电商、TikTok 运营与出海业务架构</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>普通看视频只在乎峰值速度，而跨境电商只在乎<strong>“IP 稳不稳、纯不纯、变不变”</strong>。亚马逊、PayPal、Stripe、eBay 及 TikTok 对登录 IP 极其敏感，出口 IP 频繁漂移会被直接判定为异地盗号或账号关联，导致资金冻结与关店封号。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>原生住宅出口 IP · 零漂移 · 专线双入口热备容灾</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>严禁出口 IP 频繁轮换，配合指纹浏览器做本地物理隔离</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>切忌使用廉价动态轮换公网中转，避免店铺触发跨国风控封禁</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/cross-border-ecommerce-proxy-guide.html">《跨境电商独立 IP 防封与防关联实战指南》</a>
+            <a href="articles/browser-fingerprint-proxy-privacy.html">《浏览器指纹、代理隐私与账号安全隔离全解》</a>
+            <a href="articles/tiktok-airport-node-fix.html">《TikTok 节点黑屏与零播放排查修复指南》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/shandianshu.jpg" alt="闪电鼠" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>闪电鼠</h4>
+                  <span class="sc-tag tag-top">首选旗舰</span>
+                </div>
+                <p class="sc-sub">顶级 IEPL 双入口冗余专线 · 高 SLA 跨境办公首选</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>实测晚高峰</span><strong>520+ Mbps</strong></div>
+              <div><span>IP 纯净度</span><strong>原生住宅池</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>sd88</code></span>
+              <a href="reviews/shandianshu.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/dalaoyun.png" alt="大佬云" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>大佬云</h4>
+                  <span class="sc-tag tag-sub">多开备选</span>
+                </div>
+                <p class="sc-sub">高速 IEPL 多线专线 · 不限制设备并发数</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>实测晚高峰</span><strong>500+ Mbps</strong></div>
+              <div><span>设备并发</span><strong>不限设备数</strong></div>
+              <div><span>折后月费</span><strong>¥16.10/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>dly88</code></span>
+              <a href="reviews/dalaoyun.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 2: 海外 AI 工具链 -->
+    <div class="scenario-panel" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="cpu"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">🤖 ChatGPT、Claude、Midjourney 与海外 AI 工具链</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>普通网页浏览只要能解析域名即可，但 OpenAI、Anthropic 对机房托管 ASN（Hosting/DataCenter）实施全网封杀，使用机房服务器 IP 容易直接触发 1020 拦截、Access Denied 或地区不可用报错。<strong>核心指标在于出口 IP 的原生住宅/商业 ISP 属性，而非单纯的峰值带宽</strong>。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>原生 ISP 宽带出口 · IP 欺诈分 &lt; 15 · DNS 地区强一致性</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>必须绕过 Cloudflare 边缘人机验证与风控防火墙</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>绝不能使用廉价公网中转与机房共享 IP，防止 API Key 与账号被批量连坐</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/ai-unlock-guide.html">《ChatGPT、Claude 无法使用怎么办？AI 节点排查》</a>
+            <a href="articles/ai-tools-ip-cleanliness-guide.html">《AI 工具链与高纯净度住宅出口 IP 挑选指南》</a>
+            <a href="articles/ai-agent-network-security.html">《AI Agent 自动化联网安全性与代理路由配置》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/shandianshu.jpg" alt="闪电鼠" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>闪电鼠</h4>
+                  <span class="sc-tag tag-top">AI首选</span>
+                </div>
+                <p class="sc-sub">原生宽带出口池 · 深度优化 OpenAI/Claude 握手</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>AI 可用率</span><strong>99.8%</strong></div>
+              <div><span>连通响应</span><strong>&lt; 350ms</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>sd88</code></span>
+              <a href="reviews/shandianshu.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/liulianyun.png" alt="榴莲云" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>榴莲云</h4>
+                  <span class="sc-tag tag-sub">高纯净池</span>
+                </div>
+                <p class="sc-sub">高质量 IPLC/IEPL 专线 · 原生住宅 IP 全覆盖</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>IP 纯净度</span><strong>纯净住宅池</strong></div>
+              <div><span>晚高峰吞吐</span><strong>480+ Mbps</strong></div>
+              <div><span>折后月费</span><strong>¥16.80/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>ll88</code></span>
+              <a href="reviews/liulianyun.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 3: 4K/8K 极清流媒体 -->
+    <div class="scenario-panel" id="panel-streaming" role="tabpanel" aria-labelledby="tab-streaming">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="film"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">🎬 Netflix、Disney+、YouTube 4K/8K 极清影音</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>流媒体场景要求<strong>“持续超大吞吐 + 晚高峰零丢包”</strong>。4K 杜比视界码率达到 25~45 Mbps，晚高峰骨干网一旦发生 1% 丢包，TCP 窗口瞬间腰斩，导致画质自适应跌落至 480P。此外版权方实施严格的地理分区锁区，非原生 IP 只能看到自制剧，需要专职运维维护落地解锁。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>晚高峰单线程带宽 &gt; 400 Mbps · 丢包率 &lt; 0.2% · 原生版权解锁</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>对单向持续吞吐量要求极高，需专职落地解锁与大冗余带宽</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>警惕严重超售的廉价中转，晚上 8 点后极易频繁降码率与转圈</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/streaming-unlock.html">《Netflix、Disney+、YouTube 机场解锁全景指南》</a>
+            <a href="articles/smart-tv-streaming-network.html">《智能电视与 Apple TV 4K 影音网络配置》</a>
+            <a href="articles/airport-night-peak-optimization.html">《晚高峰网络拥堵与专线优化实战》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/liulianyun.png" alt="榴莲云" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>榴莲云</h4>
+                  <span class="sc-tag tag-top">影音之选</span>
+                </div>
+                <p class="sc-sub">专精 Netflix 非自制剧与 Disney+ 4K 秒开</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>流媒体解锁</span><strong>99.5% 全解</strong></div>
+              <div><span>晚高峰测速</span><strong>480+ Mbps</strong></div>
+              <div><span>折后月费</span><strong>¥16.80/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>ll88</code></span>
+              <a href="reviews/liulianyun.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/dalaoyun.png" alt="大佬云" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>大佬云</h4>
+                  <span class="sc-tag tag-sub">超大带宽</span>
+                </div>
+                <p class="sc-sub">大水管 IEPL 专线 · 杜比视界与 8K 极清冗余</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>晚高峰测速</span><strong>500+ Mbps</strong></div>
+              <div><span>大文件缓存</span><strong>秒级加载</strong></div>
+              <div><span>折后月费</span><strong>¥16.10/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>dly88</code></span>
+              <a href="reviews/dalaoyun.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 4: 多设备协同与软路由 -->
+    <div class="scenario-panel" id="panel-team" role="tabpanel" aria-labelledby="tab-team">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="network"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">👥 团队办公、多设备并发与家庭软路由全屋共享</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>个人手机使用通常仅 1~2 个并发连接，而团队或局域网透明代理环境下，数十台 PC、Mac、手机、平板、NAS 和虚拟机同时发起连接，瞬时并发可达数千。<strong>绝大多数普通商家限制 2~3 台设备或对并发线程数严厉限速</strong>，多端一开立即出现排队卡死与强制踢下线。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>账号不限制客户端在线并发数 · 服务端大连接数调度队列</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>局域网透明代理要求高并发承载，支持 OpenWrt/RouterOS 分流</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>严禁选用有严苛“设备数限制 (IP Limit)”的套餐，否则多设备频繁假死断流</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/multi-device-guide.html">《多设备家庭与团队网络共享避坑指南》</a>
+            <a href="articles/router-proxy-performance.html">《路由器与局域网透明代理部署实战》</a>
+            <a href="articles/clash-tun-mode-troubleshooting.html">《Clash Verge Rev 开启 TUN 模式无法上网排障》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/dalaoyun.png" alt="大佬云" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>大佬云</h4>
+                  <span class="sc-tag tag-top">不限并发</span>
+                </div>
+                <p class="sc-sub">全线不限并发设备数 · 外贸团队与软路由主力</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>并发限制</span><strong>完全不限制</strong></div>
+              <div><span>专线架构</span><strong>高速 IEPL 多线</strong></div>
+              <div><span>折后月费</span><strong>¥16.10/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>dly88</code></span>
+              <a href="reviews/dalaoyun.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/shandianshu.jpg" alt="闪电鼠" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>闪电鼠</h4>
+                  <span class="sc-tag tag-sub">高可用热备</span>
+                </div>
+                <p class="sc-sub">广深+沪日双入口集群 · 毫秒级自动故障转移</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>网络可用率</span><strong>99.9% SLA</strong></div>
+              <div><span>晚高峰测速</span><strong>520+ Mbps</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>sd88</code></span>
+              <a href="reviews/shandianshu.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 5: 游戏联机与低延迟 -->
+    <div class="scenario-panel" id="panel-gaming" role="tabpanel" aria-labelledby="tab-gaming">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="crosshair"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">🎮 跨国交互、海外游戏联机与极低延迟测试</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>联机交互对“带宽大小”需求并不高（几兆带宽足矣），但对<strong>“往返延迟（RTT）、抖动（Jitter）与 UDP 丢包率”</strong>有着变态级苛求。任何公网隧道的抖动或 UDP 丢包都会导致游戏直接瞬移卡顿甚至掉线，必须采用内网物理直达专线并支持 Full Cone NAT。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>点对点内网直连（IPLC/IEPL） · RTT &lt; 35ms · Full Cone NAT 1</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>零公网跳跃，无 UDP QoS 恶意限速与封锁</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>切忌使用公网普通中转（公网跳数多，晚高峰丢包抖动剧烈）</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/gaming-latency-guide.html">《游戏联机延迟高与丢包排障：从 NAT 类型到专线加速》</a>
+            <a href="articles/console-gaming-proxy-setup.html">《主机游戏与软路由代理配置全教程》</a>
+            <a href="articles/cdn-anycast-latency-guide.html">《CDN Anycast、骨干路由与专线延迟深度剖析》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/shandianshu.jpg" alt="闪电鼠" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>闪电鼠</h4>
+                  <span class="sc-tag tag-top">极低延旗舰</span>
+                </div>
+                <p class="sc-sub">广深沿海入口内网直达 · 平均丢包率低于 0.2%</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>香港/日本延迟</span><strong>32ms / 42ms</strong></div>
+              <div><span>NAT 类型</span><strong>Full Cone NAT 1</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>sd88</code></span>
+              <a href="reviews/shandianshu.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/huanqiuti.jpg" alt="环球梯" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>环球梯</h4>
+                  <span class="sc-tag tag-sub">高性价比</span>
+                </div>
+                <p class="sc-sub">BGP 优质三网优化中继 · 亲民高性价入门节点</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>晚高峰测速</span><strong>440+ Mbps</strong></div>
+              <div><span>亚太节点</span><strong>覆盖全日韩新台</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>HQ66</code></span>
+              <a href="reviews/huanqiuti.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 6: 轻度文献查阅与按量备用 -->
+    <div class="scenario-panel" id="panel-budget" role="tabpanel" aria-labelledby="tab-budget">
+      <div class="scenario-layout">
+        <div class="scenario-analysis-box">
+          <div class="analysis-badge"><i data-lucide="coins"></i> 场景关键痛点与技术边界</div>
+          <h3 class="scenario-panel-title">🎒 学生党、轻度查资料与按量付费备用防失联</h3>
+          <p class="scenario-lead"><strong>核心区别：</strong>轻度用户平时仅用于 Google 查论文、查资料，每月流量消耗不到 5%，购买几十元包月套餐存在巨大闲置浪费；此外主力专线偶发故障时，急需一条<strong>“平时不扣费、关键时刻秒切换、流量永不过期”</strong>的高性价比兜底备用方案。</p>
+          
+          <div class="metric-checks">
+            <div class="metric-item">
+              <strong>硬性技术指标</strong>
+              <span>支持无期限按量计费（Pay As You Go） · 极低资费门槛</span>
+            </div>
+            <div class="metric-item">
+              <strong>与其他场景本质区别</strong>
+              <span>追求真实 1:1 计费无偷跑，低成本高可用备用方案</span>
+            </div>
+            <div class="metric-item danger">
+              <strong>避坑红线警示</strong>
+              <span>坚决抵制“一元机场”与“低价大额多年付”，防止跑路人财两空</span>
+            </div>
+          </div>
+
+          <div class="scenario-article-links">
+            <span class="links-title"><i data-lucide="book-open"></i> 关联技术实战指南：</span>
+            <a href="articles/pay-as-you-go-airport-guide.html">《2026 按量付费与不限时机场推荐：流量不过期指南》</a>
+            <a href="articles/cheap-airport-recommendation.html">《便宜机场与高性价比梯子深度评测避坑指南》</a>
+            <a href="articles/airport-risk-warning.html">《机场跑路前有哪些征象？避坑检查表》</a>
+          </div>
+        </div>
+
+        <div class="scenario-recommend-col">
+          <div class="col-title"><i data-lucide="award"></i> 该场景编辑首选方案</div>
+          
+          <div class="scenario-card match-primary">
+            <div class="sc-header">
+              <img src="assets/logos/huanqiuti.jpg" alt="环球梯" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>环球梯</h4>
+                  <span class="sc-tag tag-top">亲民首选</span>
+                </div>
+                <p class="sc-sub">亲民平价 · 三网优化中继 · 适合新手与日常学生</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>月付门槛</span><strong>折后低至 ¥15.40</strong></div>
+              <div><span>晚高峰测速</span><strong>440+ Mbps</strong></div>
+              <div><span>节点分布</span><strong>港日新美全覆盖</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>HQ66</code></span>
+              <a href="reviews/huanqiuti.html" class="button button-sm button-primary">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div class="scenario-card match-secondary">
+            <div class="sc-header">
+              <img src="assets/logos/yunjiexian.png" alt="云界线" class="sc-logo">
+              <div>
+                <div class="sc-name-row">
+                  <h4>云界线</h4>
+                  <span class="sc-tag tag-sub">按量备用</span>
+                </div>
+                <p class="sc-sub">按量付费不限时 · 1:1 精确计量备用兜底防失联</p>
+              </div>
+            </div>
+            <div class="sc-specs">
+              <div><span>计费模式</span><strong>不过期按需扣费</strong></div>
+              <div><span>晚高峰测速</span><strong>420+ Mbps</strong></div>
+              <div><span>折后月费</span><strong>¥15.40/月</strong></div>
+            </div>
+            <div class="sc-actions">
+              <span class="sc-coupon">7折券码: <code>yjx888</code></span>
+              <a href="reviews/yunjiexian.html" class="button button-sm button-ghost">查阅实测报告 <i data-lucide="chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 场景差异决策对比速查矩阵 -->
+  <div class="scenario-matrix-box">
+    <div class="matrix-header">
+      <i data-lucide="table-2"></i>
+      <h3>6 大场景核心技术指标区别对比矩阵</h3>
+    </div>
+    <div class="matrix-table-wrap">
+      <table class="scenario-matrix-table">
+        <thead>
+          <tr>
+            <th>应用场景</th>
+            <th>首要考核核心</th>
+            <th>线路架构要求</th>
+            <th>关键避坑红线</th>
+            <th>最佳适配方案</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>💼 跨境电商 / 出海运营</strong></td>
+            <td>固定出口 IP 纯净度 · 零漂移</td>
+            <td>原生住宅 IP + 双入口冗余 IEPL</td>
+            <td>严禁使用动态轮换代理，防止关联封店</td>
+            <td><a href="reviews/shandianshu.html">闪电鼠</a></td>
+          </tr>
+          <tr>
+            <td><strong>🤖 海外 AI 接口与模型调用</strong></td>
+            <td>ASN 出口质量 · 防 1020 拦截</td>
+            <td>原生住宅/商业 ISP 静态池</td>
+            <td>严禁廉价机房 IP，避免频繁地区不可用</td>
+            <td><a href="reviews/shandianshu.html">闪电鼠</a> · <a href="reviews/liulianyun.html">榴莲云</a></td>
+          </tr>
+          <tr>
+            <td><strong>🎬 4K/8K 极清流媒体播放</strong></td>
+            <td>晚高峰持续吞吐 (&gt;400M) · 零丢包</td>
+            <td>物理专线直连 + 原生流媒体解锁</td>
+            <td>警惕公网中转晚高峰拥堵频繁转圈降码率</td>
+            <td><a href="reviews/liulianyun.html">榴莲云</a> · <a href="reviews/dalaoyun.html">大佬云</a></td>
+          </tr>
+          <tr>
+            <td><strong>👥 团队协同 / 局域网软路由</strong></td>
+            <td>连接并发数上限 · 带宽冗余度</td>
+            <td>不限并发专线集群 · 队列调度优化</td>
+            <td>警惕严格限制客户端数导致设备频繁被踢</td>
+            <td><a href="reviews/dalaoyun.html">大佬云</a></td>
+          </tr>
+          <tr>
+            <td><strong>🎮 游戏联机 / 低延迟交互</strong></td>
+            <td>往返时延 RTT (&lt;35ms) · 零丢包</td>
+            <td>点对点内网直连 + Full Cone NAT</td>
+            <td>警惕公网普通中转路由绕行与 UDP QoS 限制</td>
+            <td><a href="reviews/shandianshu.html">闪电鼠</a> · <a href="reviews/huanqiuti.html">环球梯</a></td>
+          </tr>
+          <tr>
+            <td><strong>🎒 轻量文献 / 按量备用防失联</strong></td>
+            <td>资费门槛 · 流量不过期按需扣费</td>
+            <td>BGP 三网优化 + 备用路由池</td>
+            <td>避免大额多年付小作坊，坚持月付或按量</td>
+            <td><a href="reviews/huanqiuti.html">环球梯</a> · <a href="reviews/yunjiexian.html">云界线</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section class="section home-portals" aria-labelledby="portal-title"><div class="section-heading"><div><p class="eyebrow dark">独立栏目 · 快速进入</p><h2 id="portal-title">选择你现在需要的内容</h2></div><p>首页只保留内容导航，每个栏目都拥有独立页面，阅读和分享更清晰。</p></div><div class="portal-grid">
   <a href="recommend.html"><i data-lucide="award"></i><strong>机场推荐</strong><span>查看推荐理由、优点和适合人群</span></a>
+  <a href="#scenarios"><i data-lucide="target"></i><strong>场景化选型</strong><span>按出海、AI、4K、软路由精准选型</span></a>
   <a href="reviews/index.html"><i data-lucide="file-text"></i><strong>独立测评专区</strong><span>24家机场简介、套餐、营业时间与线路</span></a>
   <a href="budget.html"><i data-lucide="wallet-cards"></i><strong>性价比机场</strong><span>按价格、线路与实际用途选择</span></a>
   <a href="compare.html"><i data-lucide="table-2"></i><strong>机场对比</strong><span>六家方案的完整数据横向对比</span></a>

@@ -88,8 +88,11 @@ for (const [id,meta] of Object.entries(pages)) {
 
 let hero = rewriteLinks(fs.readFileSync(heroPath, 'utf8'));
 hero = hero.replace('5 例</strong><span>公开来源风险记录', '10 例</strong><span>公开来源风险记录');
+const scenariosPath = path.join(partialDir, 'scenarios.html');
+const scenarios = fs.existsSync(scenariosPath) ? rewriteLinks(fs.readFileSync(scenariosPath, 'utf8')) : '';
 const portal = `<section class="section home-portals" aria-labelledby="portal-title"><div class="section-heading"><div><p class="eyebrow dark">独立栏目 · 快速进入</p><h2 id="portal-title">选择你现在需要的内容</h2></div><p>首页只保留内容导航，每个栏目都拥有独立页面，阅读和分享更清晰。</p></div><div class="portal-grid">
   <a href="recommend.html"><i data-lucide="award"></i><strong>机场推荐</strong><span>查看推荐理由、优点和适合人群</span></a>
+  <a href="#scenarios"><i data-lucide="target"></i><strong>场景化选型</strong><span>按出海、AI、4K、软路由精准选型</span></a>
   <a href="reviews/index.html"><i data-lucide="file-text"></i><strong>独立测评专区</strong><span>24家机场简介、套餐、营业时间与线路</span></a>
   <a href="budget.html"><i data-lucide="wallet-cards"></i><strong>性价比机场</strong><span>按价格、线路与实际用途选择</span></a>
   <a href="compare.html"><i data-lucide="table-2"></i><strong>机场对比</strong><span>六家方案的完整数据横向对比</span></a>
@@ -100,7 +103,7 @@ const portal = `<section class="section home-portals" aria-labelledby="portal-ti
   <a href="faq.html"><i data-lucide="circle-help"></i><strong>机场 FAQ</strong><span>快速解决新手常见问题</span></a>
   <a href="about.html"><i data-lucide="info"></i><strong>关于机场眼</strong><span>了解评测方法和内容原则</span></a>
 </div></section>`;
-fs.writeFileSync(sourcePath, shell({title:'机场眼 - 2026高速机场推荐与平价机场测评导航',description:'机场眼专注2026稳定高速机场推荐与平安机场客观评测，提供优质IEPL专线节点分享、10元平民性价比机场排行榜与大额优惠码。结合晚高峰真实测速、4K流媒体解锁、跑路风险预警与Clash/Sing-box客户端教程，助你精准避坑，挑选最省心可靠的高速网络连接。',active:'',content:`${hero}\n${portal}`,home:true}), 'utf8');
+fs.writeFileSync(sourcePath, shell({title:'机场眼 - 2026高速机场推荐与平价机场测评导航',description:'机场眼专注2026稳定高速机场推荐与平安机场客观评测，提供优质IEPL专线节点分享、10元平民性价比机场排行榜与大额优惠码。结合晚高峰真实测速、4K流媒体解锁、跑路风险预警与Clash/Sing-box客户端教程，助你精准避坑，挑选最省心可靠的高速网络连接。',active:'',content:`${hero}\n${scenarios}\n${portal}`,home:true}), 'utf8');
 
 console.log(`Generated homepage and ${Object.keys(pages).length} standalone pages.`);
 

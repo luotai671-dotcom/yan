@@ -2040,6 +2040,413 @@ svg { width: 18px; height: 18px; stroke-width: 1.8; }
   font-size: 12px;
 }
 
+/* ===================================================
+   场景化细分与差异对比模块 (Scenarios Section)
+   =================================================== */
+.scenarios-section {
+  padding-top: 48px;
+  padding-bottom: 56px;
+}
+.scenario-tabs-container {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 28px;
+  -webkit-overflow-scrolling: touch;
+}
+.scenario-tabs {
+  display: flex;
+  gap: 10px;
+  min-width: max-content;
+}
+.scenario-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: white;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.03);
+}
+.scenario-tab-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+.scenario-tab-btn.active {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+  box-shadow: 0 4px 14px rgba(20,23,20,.18);
+}
+.scenario-tab-btn.active i {
+  color: #ffd166;
+}
+.scenario-tab-btn .tab-badge {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.06);
+  color: var(--muted);
+  font-weight: 500;
+}
+.scenario-tab-btn.active .tab-badge {
+  background: rgba(255,255,255,.2);
+  color: #f4f1ea;
+}
+
+.scenario-panels {
+  position: relative;
+}
+.scenario-panel {
+  display: none;
+  animation: fadeInPanel .3s ease forwards;
+}
+.scenario-panel.active {
+  display: block;
+}
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scenario-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .scenario-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scenario-analysis-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.03);
+}
+.analysis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eef5f2;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.scenario-panel-title {
+  font-size: 20px;
+  margin: 0 0 14px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.scenario-lead {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #2b302c;
+  margin-bottom: 20px;
+  background: var(--paper);
+  padding: 14px 18px;
+  border-radius: 8px;
+  border-left: 4px solid var(--blue);
+}
+
+.metric-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper-strong);
+  font-size: 13px;
+}
+.metric-item strong {
+  color: var(--ink);
+  margin-bottom: 2px;
+  font-size: 12.5px;
+}
+.metric-item span {
+  color: #49504a;
+}
+.metric-item.danger {
+  border-color: #f7c5ba;
+  background: #fff8f6;
+}
+.metric-item.danger strong {
+  color: var(--red);
+}
+
+.scenario-article-links {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.scenario-article-links .links-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.scenario-article-links a {
+  font-size: 13px;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .15s;
+}
+.scenario-article-links a:hover {
+  color: var(--red);
+}
+
+.scenario-recommend-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.col-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.scenario-card {
+  background: white;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all .2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,.03);
+}
+.scenario-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.scenario-card.match-primary {
+  border-color: var(--red);
+  background: linear-gradient(180deg, #fffcfb 0%, white 100%);
+}
+.sc-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.sc-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 2px;
+  object-fit: contain;
+  background: white;
+}
+.sc-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sc-name-row h4 {
+  margin: 0;
+  font-size: 18px;
+}
+.sc-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.sc-tag.tag-top {
+  background: #fde8e5;
+  color: var(--red);
+}
+.sc-tag.tag-sub {
+  background: #eef2f5;
+  color: var(--blue);
+}
+.sc-sub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.sc-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--paper);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.sc-specs div {
+  display: flex;
+  flex-direction: column;
+}
+.sc-specs span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.sc-specs strong {
+  font-size: 13.5px;
+  color: var(--ink);
+  margin-top: 2px;
+}
+.sc-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.sc-coupon {
+  font-size: 12px;
+  color: var(--muted);
+}
+.sc-coupon code {
+  background: #fee7e2;
+  color: var(--red-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: monospace;
+}
+.button.button-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+/* 场景对比决策矩阵表格 */
+.scenario-matrix-box {
+  margin-top: 36px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.02);
+}
+.matrix-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.matrix-header h3 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--ink);
+}
+.matrix-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scenario-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 680px;
+}
+.scenario-matrix-table th {
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--line);
+  font-weight: 700;
+}
+.scenario-matrix-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: #333833;
+}
+.scenario-matrix-table tr:hover td {
+  background: #faf8f3;
+}
+.scenario-matrix-table td a {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* 推荐页场景快速直达条 (Scenario Filter Bar) */
+.scenario-filter-bar {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 18px 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,.02);
+}
+.filter-bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.scenario-filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: all .18s ease;
+  cursor: pointer;
+}
+.chip-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--red);
+  color: var(--red);
+  background: white;
+  box-shadow: 0 4px 12px rgba(225, 73, 47, .12);
+}
+.chip-item i {
+  width: 15px;
+  height: 15px;
+}
+
+
+
 
 
 

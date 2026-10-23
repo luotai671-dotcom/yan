@@ -8,7 +8,7 @@
 
 [![Blog](https://img.shields.io/badge/官方学术博客-www.jichangyan.com-0284c7?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.jichangyan.com/)
 [![Updated](https://img.shields.io/badge/持续更新-2026年最新收录-10b981?style=for-the-badge&logo=clockify&logoColor=white)](https://www.jichangyan.com/)
-[![Community](https://img.shields.io/badge/技术交流群-博客官方专区-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](https://www.jichangyan.com/about.html)
+[![Community](https://img.shields.io/badge/技术交流群-博客官方专区-229ED9?style=for-the-badge)](https://www.jichangyan.com/about.html)
 [![License](https://img.shields.io/badge/开源协议-MIT-f59e0b?style=for-the-badge)](LICENSE)
 
 <p align="center">
@@ -232,7 +232,7 @@ Clash配置测试 | Sing-box配置教程 | Shadowrocket小火箭配置 | Clash V
 ## 💬 交流专区与合规声明
 
 - 🌐 **官方博客主站**：[https://www.jichangyan.com/](https://www.jichangyan.com/)
-- ✈️ **交流讨论专区**：[点击前往官方博客技术交流区 (www.jichangyan.com/about.html)](https://www.jichangyan.com/about.html)
+- 💬 **交流讨论专区**：[点击前往官方博客技术交流区 (www.jichangyan.com/about.html)](https://www.jichangyan.com/about.html)
 - 📌 **合规声明**：本项目仅供计算机网络协议研究、跨境路由测试与学术交流，绝不提供任何商业网络接入服务或非法工具。请严格遵守所在国家与地区的法律法规，文明合规使用网络。
 
 ---

@@ -5,7 +5,7 @@
  * 1. 自动检测根目录下 32 位 Hex 格式的验证密钥文件（如 21d12b3e3100412c877871878d766846.txt）
  * 2. 自动读取 CNAME 获取站点域名（默认 jichangyan.com）
  * 3. 自动解析 sitemap.xml 提取所有待索引的 URL（或支持命令行传参指定单条/多条 URL）
- * 4. 向 https://api.indexnow.org/indexnow 发送标准 POST 请求
+ * 4. 支持 IndexNow 官方多网关轮换提交 (api.indexnow.org, yandex.com, bing.com)，跨引擎自动广播同步
  * 5. 校验返回状态码（200 / 202 均代表接收成功）
  */
 
@@ -16,6 +16,13 @@ const http = require('http');
 const { URL } = require('url');
 
 const rootDir = __dirname;
+
+// 候选的 IndexNow 官方网关列表（任一节点接收成功均会自动广播至所有 IndexNow 成员搜索引擎）
+const ENDPOINTS = [
+  'https://api.indexnow.org/indexnow',
+  'https://yandex.com/indexnow',
+  'https://www.bing.com/indexnow'
+];
 
 // 1. 获取站点主机名 (Host)
 function getHost() {
@@ -75,8 +82,8 @@ function getUrlsFromSitemap(host) {
   return uniqueUrls.length > 0 ? uniqueUrls : [`https://${host}/`];
 }
 
-// 4. 发送 HTTP POST 请求到 IndexNow API（支持代理与直连）
-function postIndexNow(payload, endpoint = 'https://api.indexnow.org/indexnow') {
+// 4. 发送 HTTP POST 请求到指定网关
+function postIndexNow(payload, endpoint) {
   return new Promise((resolve, reject) => {
     const targetUrl = new URL(endpoint);
     const postData = JSON.stringify(payload, null, 2);
@@ -111,7 +118,7 @@ function postIndexNow(payload, endpoint = 'https://api.indexnow.org/indexnow') {
         req.end();
         return;
       } catch (err) {
-        console.warn('[提示] 代理配置解析失败，切换为直连方式:', err.message);
+        // 代理配置解析失败则降级为直连
       }
     }
 
@@ -130,6 +137,7 @@ function postIndexNow(payload, endpoint = 'https://api.indexnow.org/indexnow') {
       res.on('data', chunk => body += chunk);
       res.on('end', () => {
         resolve({
+          endpoint,
           statusCode: res.statusCode,
           statusMessage: res.statusMessage,
           headers: res.headers,
@@ -174,33 +182,41 @@ async function main() {
       urlList: urlList
     };
 
-    console.log(`\n正在向 IndexNow 官方网关 (api.indexnow.org) 发送提交请求...`);
-    const startTime = Date.now();
-    const response = await postIndexNow(payload);
-    const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+    let submitted = false;
 
-    console.log(`\n----------------- 接口响应报告 -----------------`);
-    console.log(`HTTP 状态码: ${response.statusCode} ${response.statusMessage} (耗时 ${duration}s)`);
+    for (const endpoint of ENDPOINTS) {
+      const epHost = new URL(endpoint).hostname;
+      console.log(`\n正在向网关 [${epHost}] 发送提交请求...`);
+      try {
+        const startTime = Date.now();
+        const response = await postIndexNow(payload, endpoint);
+        const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
-    if (response.statusCode === 200) {
-      console.log(`✅ [成功 200 OK] 提交的所有 URL 已被 IndexNow 即时接收并成功处理！`);
-    } else if (response.statusCode === 202) {
-      console.log(`✅ [成功 202 Accepted] IndexNow 已接收请求，密钥与 URL 已进入处理与验证队列！`);
-    } else {
-      console.error(`❌ [异常 ${response.statusCode}] 响应内容: ${response.body || '无详细错误信息'}`);
-      console.error(`详细检查点：
-        1. 确保线上站点 https://${host}/${keyFile} 能被公网访问
-        2. 确保提交的 urlList 均属于 ${host}
-        3. 如遇 429 请稍后重试`);
+        console.log(`HTTP 状态码: ${response.statusCode} ${response.statusMessage} (耗时 ${duration}s)`);
+
+        if (response.statusCode === 200 || response.statusCode === 202) {
+          console.log(`✅ [成功 ${response.statusCode}] 已被网关接收！IndexNow 将自动跨搜索引擎全网广播更新。`);
+          if (response.body) {
+            console.log(`返回报文: ${response.body}`);
+          }
+          submitted = true;
+          break; // 只要有一个官方网关成功接收即可（IndexNow 协议规定任意网关均会互相同步）
+        } else {
+          console.warn(`⚠️ 网关返回状态码 ${response.statusCode}: ${response.body || '无详细错误信息'}，尝试备用网关...`);
+        }
+      } catch (err) {
+        console.warn(`⚠️ 网关请求异常: ${err.message}，尝试备用网关...`);
+      }
+    }
+
+    if (!submitted) {
+      console.error('\n❌ 所有 IndexNow 官方网关均未能成功处理，请检查网络或密钥线上可访问性。');
       process.exitCode = 1;
       return;
     }
 
-    if (response.body) {
-      console.log(`返回报文: ${response.body}`);
-    }
-    console.log('------------------------------------------------');
-    console.log('\n🎉 IndexNow 协议推送完成！Bing / Yandex / Naver 等搜索引擎已接入索引队列。');
+    console.log('\n----------------------------------------------------');
+    console.log('🎉 IndexNow 协议推送完成！Bing / Yandex / Naver 等搜索引擎已进入索引队列。');
 
   } catch (error) {
     console.error('\n❌ [执行失败]', error.message);

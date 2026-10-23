@@ -6,6 +6,8 @@
   "scripts": {
     "generate:articles": "node generate-articles.js",
     "build:pages": "node build-pages.js",
+    "indexnow": "node submit-indexnow.js",
+    "build": "node build-pages.js && node submit-indexnow.js",
     "check": "node --check app.js && node --check articles.js && node --check generate-articles.js && node check-site.js"
   },
   "engines": {

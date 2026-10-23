@@ -172,7 +172,7 @@
 
 ## 📚 机场眼学术知识库 55+ 篇原创专栏精选 (技术专题互动)
 
-[**机场眼官方技术博客 (www.jichangyan.com/blog.html)**](https://www.jichangyan.com/blog.html) 拥有系统严谨的跨国计算机网络协议专栏，涵盖底层传输原理、客户端调试与通信安全防范：
+[**机场眼官方技术博客 (www.jichangyan.com/blog.html)**](https://www.jichangyan.com/blog.html) 拥有全网系统、严谨的跨国计算机网络协议技术专栏，涵盖底层传输原理科普、客户端调试配置与网络安全防护：
 
 ### 🛠️ 一、 主流网络协议客户端配置与疑难排解
 - 💻 [《Clash Verge Rev 新手保姆级教程：订阅导入、规则分流与常见故障》](https://www.jichangyan.com/articles/clash-verge-rev-guide.html)

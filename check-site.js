@@ -28,7 +28,7 @@ for (const rel of htmlFiles) {
 
 const index = fs.readFileSync(path.join(root, 'articles.js'), 'utf8');
 const slugs = [...index.matchAll(/"slug":"([^"]+)"/g)].map(m => m[1]);
-if (slugs.length !== 55) failures.push(`Expected 55 indexed articles, found ${slugs.length}`);
+if (slugs.length !== 57) failures.push(`Expected 57 indexed articles, found ${slugs.length}`);
 if (new Set(slugs).size !== slugs.length) failures.push('Duplicate article slugs found');
 
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f5f3ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <circle cx="1040" cy="90" r="210" fill="#7c3aed" opacity=".14"/>
+  <circle cx="1100" cy="600" r="280" fill="#18181b" opacity=".08"/>
+  <g filter="url(#s)">
+    <rect x="70" y="65" width="1060" height="545" rx="36" fill="#ffffff" opacity=".88"/>
+  </g>
+  <rect x="112" y="112" width="10" height="72" rx="5" fill="#7c3aed"/>
+  <text x="148" y="145" font-family="Microsoft YaHei,Arial,sans-serif" font-size="28" font-weight="700" fill="#7c3aed">AI 工具</text>
+  <text x="112" y="270" font-family="Microsoft YaHei,Arial,sans-serif" font-size="46" font-weight="800" fill="#18181b">Cursor 与 Windsurf AI 代码编…</text>
+  <text x="112" y="352" font-family="Microsoft YaHei,Arial,sans-serif" font-size="30" fill="#4b5563">Cursor代理设置 AI编程编辑器网络连接修复 · 实战指南</text>
+  <path d="M112 430H720" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/>
+  <g transform="translate(800 382)">
+    <circle cx="120" cy="80" r="105" fill="#7c3aed" opacity=".16"/>
+    <path d="M55 96c52-92 114-92 168 0M72 126h132M120 18v198" fill="none" stroke="#7c3aed" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <text x="112" y="545" font-family="Microsoft YaHei,Arial,sans-serif" font-size="24" fill="#6b7280">机场眼 · 深度测试与选购指南</text>
+</svg>

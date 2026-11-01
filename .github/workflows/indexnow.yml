@@ -12,6 +12,8 @@ on:
       - 'sections/**'
       - 'sitemap.xml'
       - 'indexnow.js'
+      - 'submit-indexnow.js'
+      - 'scripts/**'
   workflow_dispatch:
 
 jobs:
@@ -28,4 +30,4 @@ jobs:
           node-version: '20'
 
       - name: Submit to IndexNow API
-        run: node indexnow.js
+        run: node scripts/submit-indexnow.js

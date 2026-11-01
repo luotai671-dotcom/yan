@@ -6,11 +6,12 @@
   "scripts": {
     "generate:articles": "node generate-articles.js",
     "build:pages": "node build-pages.js",
-    "postbuild:pages": "node indexnow.js",
-    "indexnow": "node indexnow.js",
+    "postbuild:pages": "node scripts/submit-indexnow.js",
+    "indexnow": "node scripts/submit-indexnow.js",
+    "submit:indexnow": "node scripts/submit-indexnow.js",
     "build": "node build-pages.js",
-    "postbuild": "node indexnow.js",
-    "check": "node --check app.js && node --check articles.js && node --check generate-articles.js && node --check indexnow.js && node check-site.js"
+    "postbuild": "node scripts/submit-indexnow.js",
+    "check": "node --check app.js && node --check articles.js && node --check generate-articles.js && node --check indexnow.js && node --check submit-indexnow.js && node --check scripts/submit-indexnow.js && node check-site.js"
   },
   "engines": {
     "node": ">=22"

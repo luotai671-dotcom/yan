@@ -1,6 +1,6 @@
 /**
- * IndexNow 自动推送脚本入口（兼容原有 submit-indexnow.js 别名）
- * 核心逻辑由 indexnow.js 提供
+ * submit-indexnow.js
+ * IndexNow 自动化批量推送脚本入口
  */
 
-module.exports = require('./indexnow.js');
+module.exports = require('./scripts/submit-indexnow.js');

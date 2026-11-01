@@ -35,9 +35,9 @@ if (!fs.existsSync(heroPath)) {
 const pages = {
   recommend:{file:'recommend.html',title:'2026年专线机场推荐精选排行榜：24家IEPL/IPLC机场节点速度测试、稳定评测与选购指南',description:'2026年机场推荐精选排行榜，涵盖24家优质IEPL/IPLC专线机场评测，说明推荐理由、线路优势、晚高峰速度、适合人群与购买注意事项。'},
   budget:{file:'budget.html',title:'2026便宜性价比机场推荐排行榜：10元以内月付平民机场对比、公网直连中转选购与避坑指南',description:'2026年性价比机场选择指南，横向比较10元以内月付价格、中转线路质量、晚高峰速度、流媒体解锁和适用场景。'},
-  compare:{file:'compare.html',title:'2026专线机场横向对比大评测：24家机场线路类型、晚高峰速度、流媒体解锁与折后价格对比',description:'24家专线机场线路类型、晚高峰参考速度、流媒体解锁能力、月付原价、7折优惠码与折后价格全景横向数据对比。'},
+  compare:{file:'compare.html',title:'2026专线机场横向对比大评测：24家机场线路类型、晚高峰速度、流媒体解锁与折后价格对比',description:'2026最新24家优质专线机场全景横向对比评测：深度解析IEPL与IPLC专线线路架构、晚高峰实测速度、Netflix与YouTube等4K流媒体解锁能力、专属7折优惠码与折后真实月费。提供多维度客观数据与适用场景选型指南，助你快速挑选稳定高性价比网络服务。'},
   coupons:{file:'coupons.html',title:'2026最新机场优惠码与折扣券大汇总：专属7折优惠券领取、套餐续费规则与购买省钱攻略',description:'2026年最新机场优惠码与折后价格汇总，提供7折专属折扣券，购买前核对适用套餐、重置周期和续费规则。'},
-  warning:{file:'warning.html',title:'2026机场跑路风险预警与避坑指南：失联历史案例分析、风险评估模型与维权止损方法',description:'机场跑路风险预警信号分析、公开历史失联案例汇总、风险评分模型与用户遭异常时的止损维权方法。'},
+  warning:{file:'warning.html',title:'2026机场跑路风险预警与避坑指南：失联历史案例分析、风险评估模型与维权止损方法',description:'2026最新专线机场跑路预警与避坑防雷指南：实时汇总公开失联案例与节点故障异常线索，深度拆解超低价终身套餐诱导、域名失联、节点全挂及客服停摆等高危信号。独家提供量化风险评分模型与突发异常时的紧急止损维权操作步骤，助你理性甄别服务稳定性，全面保障资金与用网安全。'},
   blog:{file:'blog.html',title:'机场眼官方技术博客文章大全：专线机场选购、Clash/Sing-box客户端教程与网络安全指南',description:'机场眼官方技术博客，提供机场选购指南、Clash/Sing-box客户端教程、网络协议原理、隐私安全与故障排查文章。'},
   resources:{file:'resources.html',title:'代理客户端与网络工具资源下载大全：Clash Verge、Sing-box、订阅转换站与测速工具',description:'全平台代理客户端下载与必备网络工具资源中心，提供Clash Verge、Sing-box、Stash、Shadowrocket、订阅转换站与节点测速工具入口。'},
   faq:{file:'faq.html',title:'2026机场新手常见问题解答 FAQ：IEPL专线区别、倍率扣费、节点连接排障与账号安全全解',description:'机场用户常见问题解答（FAQ），涵盖IEPL专线区别、套餐流量倍率扣费、客户端节点连不上排障、流媒体解锁与账号安全事项。'},

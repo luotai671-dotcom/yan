@@ -9,7 +9,9 @@ on:
       - 'articles/**'
       - 'reviews/**'
       - 'content/**'
+      - 'sections/**'
       - 'sitemap.xml'
+      - 'indexnow.js'
   workflow_dispatch:
 
 jobs:
@@ -26,4 +28,4 @@ jobs:
           node-version: '20'
 
       - name: Submit to IndexNow API
-        run: node submit-indexnow.js
+        run: node indexnow.js

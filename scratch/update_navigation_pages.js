@@ -159,7 +159,7 @@ const airports = [
     badge: '第六名 · 轻量备用',
     type: 'IEPL 优选高速专线',
     logo: 'assets/logos/yunjiexian.png',
-    url: 'https://chenpingan.yunjiexianaff.com/#/?code=xLJGaIHM',
+    url: 'https://chenpinga.yunjiexianaff.com/#/?code=rTCMGvQT',
     discountPrice: '15.40',
     originalPrice: '22',
     code: 'yjx888',

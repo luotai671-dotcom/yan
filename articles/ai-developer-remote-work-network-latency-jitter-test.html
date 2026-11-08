@@ -157,6 +157,21 @@
       color: #1e293b;
       font-weight: 700;
     }
+    @media (max-width: 640px) {
+      .eval-cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .eval-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .data-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
   </style>
 </head>
 <body class="article-page">
@@ -273,7 +288,7 @@
 
           <div class="eval-card-actions">
             <a class="button button-review" href="../go/yunjiexian" rel="nofollow sponsored noopener noreferrer" target="_blank">
-              <i data-lucide="external-link"></i> 查看节点详情 ↗
+              <i data-lucide="external-link"></i> 了解云界线 ↗
             </a>
             <a class="button button-outline" href="../compare.html" target="_blank">
               <i data-lucide="arrow-right-left"></i> 横向对比 ↗

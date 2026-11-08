@@ -146,6 +146,21 @@
       color: #1e293b;
       font-weight: 700;
     }
+    @media (max-width: 640px) {
+      .eval-cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .eval-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .cost-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
   </style>
 </head>
 <body class="article-page">

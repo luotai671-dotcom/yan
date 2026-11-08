@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g_0284c7" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f0f9ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g_0284c7)"/>
+  <circle cx="1060" cy="120" r="260" fill="#0284c7" opacity="0.08"/>
+  <circle cx="1120" cy="580" r="320" fill="#0f172a" opacity="0.04"/>
+  
+  <g filter="url(#shadow)">
+    <rect x="70" y="60" width="1060" height="555" rx="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  </g>
+  
+  <rect x="120" y="115" width="8" height="60" rx="4" fill="#0284c7"/>
+  <text x="145" y="154" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif" font-size="26" font-weight="700" fill="#0284c7">AI 安全与跨境办公</text>
+  
+  <text x="120" y="270" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif" font-size="46" font-weight="800" fill="#0f172a">2026跨境远程办公与AI出海网络实测</text>
+  <text x="120" y="340" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif" font-size="28" font-weight="500" fill="#475569">丢包抖动对ChatGPT、Claude及Git拉取的真实影响</text>
+  
+  <path d="M120 410H760" stroke="#0284c7" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  
+  <g transform="translate(840 370)">
+    <circle cx="110" cy="90" r="100" fill="#0284c7" opacity="0.12"/>
+    <path d="M60 100c50-80 100-80 150 0M75 125h120M110 30v170" fill="none" stroke="#0284c7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <text x="120" y="535" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif" font-size="22" font-weight="600" fill="#94a3b8">机场眼技术评测实验室 · 独立实测工程报告</text>
+</svg>

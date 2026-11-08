@@ -478,7 +478,7 @@ const airports = [
     badge: '第十七名 · 60+原生IP',
     type: '原生 IPLC 专线 · 60+ 节点',
     logo: 'assets/logos/guangsuyun.jpg',
-    url: 'https://sjds8ds.guangsut.sbs/#/?code=RrfZcKT5',
+    url: 'https://hu8jnfv.gsyvipaff.com/#/?code=vELLETdq',
     discountPrice: '16.80',
     originalPrice: '24',
     code: 'free70',

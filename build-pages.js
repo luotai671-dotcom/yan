@@ -76,7 +76,7 @@ function overlays() {
 
 function shell({title,description,active,content,home=false}) {
   const pageTitle = home ? title : `${title}｜机场眼`;
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="${description}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://jichangyan.com/${home?'':pages[active].file}"><title>${pageTitle}</title><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">跳到主要内容</a>${header(active)}<main id="main" class="${home?'':'standalone-main'}">${content}</main>${footer()}${overlays()}<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="articles.js"></script><script src="app.js"></script></body></html>`;
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="${description}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://jichangyan.com/${home?'':pages[active].file}"><title>${pageTitle}</title><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">跳到主要内容</a>${header(active)}<main id="main" class="${home?'':'standalone-main'}">${content}</main>${footer()}${overlays()}<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="articles.js?v=20261117b"></script><script src="app.js?v=20261117b"></script></body></html>`;
 }
 
 for (const [id,meta] of Object.entries(pages)) {

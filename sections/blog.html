@@ -51,6 +51,120 @@
         </div>
       </div>
 
-      <div class="blog-grid" id="blog-grid" aria-live="polite"></div>
-      <div class="blog-pagination" id="blog-pagination"></div>
+      <div class="blog-grid" id="blog-grid" aria-live="polite">
+        <article class="blog-card">
+          <a href="articles/dual-airport-backup-disaster-recovery-guide.html" class="blog-thumb" style="background-image:url('assets/covers/dual-airport-backup-disaster-recovery-guide.svg')" role="img" aria-label="2026主备双机场容灾推荐指南：如何用“主力高频专线+低廉按量备用”打造99.99%防失联网络拓扑？封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">选购指南</span>
+            <h3><a href="articles/dual-airport-backup-disaster-recovery-guide.html">2026主备双机场容灾推荐指南：如何用“主力高频专线+低廉按量备用”打造99.99%防失联网络拓扑？</a></h3>
+            <p>单一顶级机场亦存在海缆阻断与机房维护的单点故障风险；通过主力高频IEPL专线搭配不限时低廉按量备用节点，配合客户端fallback策略组，以极低边际成本实现99.99%高可用防失联</p>
+            <div class="blog-meta">
+              <span>2026-11-17</span> · <span>15 分钟阅读</span>
+              <a href="articles/dual-airport-backup-disaster-recovery-guide.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="articles/peak-hour-bandwidth-overbooking-concurrency-test.html" class="blog-thumb" style="background-image:url('assets/covers/peak-hour-bandwidth-overbooking-concurrency-test.svg')" role="img" aria-label="2026晚高峰抗超售机场深度实测：从并发TCP连接数、QPS响应到丢包方差，看透服务商虚标带宽真相封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">选购指南</span>
+            <h3><a href="articles/peak-hour-bandwidth-overbooking-concurrency-test.html">2026晚高峰抗超售机场深度实测：从并发TCP连接数、QPS响应到丢包方差，看透服务商虚标带宽真相</a></h3>
+            <p>Speedtest单线程跑分存在巨大欺骗性；深度剖析服务商带宽超售率（Overbooking）、NAT端口耗尽与UDP QoS惩罚机制，以百级并发TCP握手与Jitter方差量化真实抗超售能力</p>
+            <div class="blog-meta">
+              <span>2026-11-17</span> · <span>15 分钟阅读</span>
+              <a href="articles/peak-hour-bandwidth-overbooking-concurrency-test.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="articles/ai-developer-remote-work-network-latency-jitter-test.html" class="blog-thumb" style="background-image:url('assets/covers/ai-developer-remote-work-network-latency-jitter-test.svg')" role="img" aria-label="2026跨境远程办公与AI出海网络实测：丢包抖动对ChatGPT、Claude及Git拉取的真实影响封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">AI 安全</span>
+            <h3><a href="articles/ai-developer-remote-work-network-latency-jitter-test.html">2026跨境远程办公与AI出海网络实测：丢包抖动对ChatGPT、Claude及Git拉取的真实影响</a></h3>
+            <p>看视频不卡但写代码/AI交互频发断流的核心根源在于长连接WebSocket/SSE流式传输对丢包与延迟抖动（Jitter）的零容忍；生产力选型必须聚焦底层专线抗丢包与长连接保活指标</p>
+            <div class="blog-meta">
+              <span>2026-11-08</span> · <span>15 分钟阅读</span>
+              <a href="articles/ai-developer-remote-work-network-latency-jitter-test.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="articles/protocol-traffic-cost-model-analysis.html" class="blog-thumb" style="background-image:url('assets/covers/protocol-traffic-cost-model-analysis.svg')" role="img" aria-label="2026科学上网协议与成本模型解构：从Vless、Trojan到专线中转，看懂梯子定价背后的技术账封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">线路科普</span>
+            <h3><a href="articles/protocol-traffic-cost-model-analysis.html">2026科学上网协议与成本模型解构：从Vless、Trojan到专线中转，看懂梯子定价背后的技术账</a></h3>
+            <p>机场定价并非玄学，而是由 IDC 机房采买成本、跨国专线带宽月租与超售比例（Overbooking）决定的技术数学账；理性选型需看懂协议封装开销与真实单 G 价值</p>
+            <div class="blog-meta">
+              <span>2026-11-08</span> · <span>14 分钟阅读</span>
+              <a href="articles/protocol-traffic-cost-model-analysis.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="articles/linux-docker-terminal-proxy-tutorial.html" class="blog-thumb" style="background-image:url('assets/covers/linux-docker-terminal-proxy-tutorial.svg')" role="img" aria-label="Linux 终端与 Docker 容器配置机场代理实操教程：解决 git、curl 与镜像拉取超时封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">客户端教程</span>
+            <h3><a href="articles/linux-docker-terminal-proxy-tutorial.html">Linux 终端与 Docker 容器配置机场代理实操教程：解决 git、curl 与镜像拉取超时</a></h3>
+            <p>Linux 终端代理配置不能仅靠桌面开关，必须分别针对 Shell 环境变量（http_proxy/all_proxy）、Git 协议、Docker Daemon 守护进程（systemd drop-in）以及容器内部构建参数进行分层配置</p>
+            <div class="blog-meta">
+              <span>2026-10-24</span> · <span>11 分钟阅读</span>
+              <a href="articles/linux-docker-terminal-proxy-tutorial.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a href="articles/cursor-windsurf-ai-editor-proxy-fix.html" class="blog-thumb" style="background-image:url('assets/covers/cursor-windsurf-ai-editor-proxy-fix.svg')" role="img" aria-label="Cursor 与 Windsurf AI 代码编辑器网络代理配置与连接报错排障实战封面"></a>
+          <div class="blog-content">
+            <span class="blog-tag">AI 工具</span>
+            <h3><a href="articles/cursor-windsurf-ai-editor-proxy-fix.html">Cursor 与 Windsurf AI 代码编辑器网络代理配置与连接报错排障实战</a></h3>
+            <p>Cursor 基于 Electron 架构开发，其 AI 对话与代码补全深度依赖 gRPC/HTTP2 长连接与 Anthropic/OpenAI 模型端点；彻底排障需要结合 settings.json 显式代理注入、客户端 TUN 虚拟网卡强制接管、专用域名分流及 SSL 证书验证绕过</p>
+            <div class="blog-meta">
+              <span>2026-10-24</span> · <span>12 分钟阅读</span>
+              <a href="articles/cursor-windsurf-ai-editor-proxy-fix.html" class="text-link">阅读文章 <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="blog-pagination" id="blog-pagination">
+        <div class="pagination-controls"><button class="page-btn page-nav" disabled data-page="0" aria-label="上一页">
+        <i data-lucide="chevron-left"></i> 上一页
+      </button>
+      <button class="page-btn page-num active" data-page="1" aria-label="第 1 页">
+        1
+      </button>
+      <button class="page-btn page-num " data-page="2" aria-label="第 2 页">
+        2
+      </button>
+      <button class="page-btn page-num " data-page="3" aria-label="第 3 页">
+        3
+      </button>
+      <button class="page-btn page-num " data-page="4" aria-label="第 4 页">
+        4
+      </button>
+      <button class="page-btn page-num " data-page="5" aria-label="第 5 页">
+        5
+      </button>
+      <button class="page-btn page-num " data-page="6" aria-label="第 6 页">
+        6
+      </button>
+      <button class="page-btn page-num " data-page="7" aria-label="第 7 页">
+        7
+      </button>
+      <button class="page-btn page-num " data-page="8" aria-label="第 8 页">
+        8
+      </button>
+      <button class="page-btn page-num " data-page="9" aria-label="第 9 页">
+        9
+      </button>
+      <button class="page-btn page-num " data-page="10" aria-label="第 10 页">
+        10
+      </button>
+      <button class="page-btn page-num " data-page="11" aria-label="第 11 页">
+        11
+      </button>
+      <button class="page-btn page-nav" data-page="2" aria-label="下一页">
+        下一页 <i data-lucide="chevron-right"></i>
+      </button></div>
+        <div class="pagination-info">显示第 1 - 6 篇 · 筛选出 61 篇文章（第 1 / 11 页）</div>
+      </div>
     </section>
